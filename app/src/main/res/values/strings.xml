@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Woof</string>
+
+    <string name="dog_1">Max</string>
+    <string name="dog_2">Bella</string>
+    <string name="dog_3">Charlie</string>
+    <string name="dog_4">Daisy</string>
+    <string name="dog_5">Rocky</string>
+    <string name="dog_6">Luna</string>
+    <string name="dog_7">Bailey</string>
+    <string name="dog_8">Sadie</string>
+    <string name="dog_9">Toby</string>
+    <string name="dog_10">Sophie</string>
+
+</resources>
