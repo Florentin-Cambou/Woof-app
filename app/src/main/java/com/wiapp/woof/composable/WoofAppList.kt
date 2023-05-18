@@ -8,9 +8,10 @@ import com.wiapp.woof.model.CategoryDatas
 @Composable
 fun WoofAppList(categoryDatas: List<CategoryDatas>) {
     LazyColumn {
-        items(categoryDatas) {
-            categoryDatas ->
+        items(categoryDatas) { categoryDatas ->
+
             WoofAppCard(categoryDatas)
         }
     }
 }
+

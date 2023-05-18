@@ -12,4 +12,29 @@
     <string name="dog_9">Toby</string>
     <string name="dog_10">Sophie</string>
 
+    <string name="dog_age_1">1 an</string>
+    <string name="dog_age_2">2 ans</string>
+    <string name="dog_age_3">3 ans</string>
+    <string name="dog_age_4">4 ans</string>
+    <string name="dog_age_5">5 ans</string>
+    <string name="dog_age_6">6 ans</string>
+    <string name="dog_age_7">7 ans</string>
+    <string name="dog_age_8">8 ans</string>
+    <string name="dog_age_9">9 ans</string>
+    <string name="dog_age_10">10 ans</string>
+
+    <string name="title_hobby">J\'aime…</string>
+
+    <string name="hobby_1">Courir et jouer à attraper une balle</string>
+    <string name="hobby_2">Faire de longues promenades et explorer </string>
+    <string name="hobby_3">Participer à des activités d\'agilité</string>
+    <string name="hobby_4">Jouer à des jeux de recherche et de pistage.</string>
+    <string name="hobby_5">Nager ou se rafraîchir dans l\'eau</string>
+    <string name="hobby_6">Faire des randonnées en plein air </string>
+    <string name="hobby_7">Jouer à des jeux interactifs</string>
+    <string name="hobby_8">Participer à des séances de socialisation </string>
+    <string name="hobby_9">Faire de l\'exercice mental en apprenant de nouveaux tours</string>
+    <string name="hobby_10">Participer à des sports canins tels que l\'obéissance,</string>
+
+
 </resources>

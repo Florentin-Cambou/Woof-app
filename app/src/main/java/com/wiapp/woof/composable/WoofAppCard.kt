@@ -1,22 +1,26 @@
 package com.wiapp.woof.composable
 
+import androidx.compose.animation.animateContentSize
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.spring
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -28,12 +32,16 @@ import com.wiapp.woof.model.CategoryDatas
 
 @Composable
 fun WoofAppCard(categoryData: CategoryDatas) {
+    var expanded by remember { mutableStateOf(false) }
 
     Card(
         modifier = Modifier
-            .padding(8.dp)
-            .fillMaxWidth(),
-        elevation = CardDefaults.cardElevation(5.dp)
+            .animateContentSize(animationSpec = spring(
+                dampingRatio = Spring.DampingRatioMediumBouncy,
+                stiffness = Spring.StiffnessLow
+            ))
+            .padding(8.dp),
+        elevation = CardDefaults.cardElevation(5.dp),
     ) {
         Row() {
             Image(
@@ -47,9 +55,9 @@ fun WoofAppCard(categoryData: CategoryDatas) {
             )
             Column(
                 modifier = Modifier
-                    .width(100.dp)
-                    .padding(start = 5.dp, top = 5.dp)
-                    .size(64.dp),
+                    .width(250.dp)
+                    .padding(start = 5.dp, top = 5.dp),
+                    //.size(64.dp),
                 verticalArrangement = Arrangement.aligned(Alignment.CenterVertically)
             ) {
                 Text(
@@ -60,17 +68,37 @@ fun WoofAppCard(categoryData: CategoryDatas) {
                     text = stringResource(id = categoryData.dogAge),
                     style = MaterialTheme.typography.bodyMedium
                 )
+                if (expanded){
+                    Column(
+                        modifier = Modifier
+                            .padding(top = 10.dp, bottom = 10.dp)
+                    ) {
+
+                        Text(
+                            text = stringResource(id = categoryData.titleAbout),
+                            style = MaterialTheme.typography.titleSmall
+                        )
+                        Text(
+                            text = stringResource(id = categoryData.dogAbout),
+                            style = MaterialTheme.typography.bodyMedium
+                        )
+                    }
+                }
             }
+            Spacer(modifier = Modifier.weight(1f))
             Row(
                 modifier = Modifier
                     .padding(end = 10.dp)
-                    .fillMaxWidth()
                     .size(65.dp),
                 horizontalArrangement = Arrangement.End,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Icon(Icons.Default.KeyboardArrowDown, contentDescription = null)
+                DogItemButton(
+                    expanded = false,
+                    onClick = {expanded = !expanded}
+                )
             }
         }
     }
 }
+
